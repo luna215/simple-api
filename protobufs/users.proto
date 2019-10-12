@@ -2,11 +2,14 @@ syntax = "proto3";
 
 package users;
 
-service Users {
+service UsersService {
     // rpc getUsers(GetUsersRequest) returns (Users) {}
-    rpc getUserById(GetUserRequest) returns (User) {}
+    // rpc getUserById(GetUserRequest) returns (User) {}
+    rpc getUsers(EmptyRequest) returns (Users) {}
     rpc saveUser(SaveUserRequest) returns (User) {}
 }
+
+message EmptyRequest {}
 
 message GetUserRequest {
     int32 userId = 1;
@@ -24,3 +27,6 @@ message User {
     string email = 3;
 }
 
+message Users {
+    repeated User listOfUsers = 1;
+}

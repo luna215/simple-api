@@ -12,8 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "@grpc/proto-loader": "^0.5.2",
+    "dotenv": "^8.1.0",
     "grpc": "^1.24.0",
-    "grpc-kit": "^0.2.0"
+    "grpc-kit": "^0.2.0",
+    "mysql": "^2.17.1"
   },
   "devDependencies": {
     "debug": "^4.1.1"
