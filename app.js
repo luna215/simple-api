@@ -1,21 +1,17 @@
+var debug = require("debug")('app');
+
 const { graphqlPort } = require('./config');
+
+const { schema } = require('./schema/index');
 
 const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 
-const typeDefs = gql`
-    type Query {
-        hello: String
-    }
-`;
+debug('Schema:', schema);
 
-const resolvers = {
-    Query: {
-        hello: () => 'Welcome to a simple Query'
-    }
-}
+const server = new ApolloServer({schema});
 
-const server = new ApolloServer({typeDefs, resolvers});
+debug('After server declaration');
 
 const app = express();
 server.applyMiddleware({ app });
